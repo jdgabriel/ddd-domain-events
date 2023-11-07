@@ -7,9 +7,10 @@ flowchart TD
     A[Order] --> B(new Order)
     B --> |event| C(OrderCreatedEvent)
     B --> |event| D(OrderPaidEvent)
-    B --> |persist| F[Database]
+    B --> |persist|G
     C --> E
     D --> E
+    F[Database]
     E(DomainEvents)
     G(Repository)
     E --> |persist events|G
