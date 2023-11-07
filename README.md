@@ -11,12 +11,15 @@ flowchart TD
     C --> E
     D --> E
     E(DomainEvents)
-    F[Database] --> |Dispatch events| E
+    G(Repository)
+    E --> |persist events|G
+    G --> |Dispatch events| E
+    G --> F
 ```
 
 1. Criar uma `Order`;
 2. Criar um evento respectivo a sua ação;
-3. Salvar em banco de dados;
+3. Salvar em banco de dados (Repositórios);
 4. Disparar `DomainEvents` com o `id` da entidade;
 
 #### Fluxograma em código
